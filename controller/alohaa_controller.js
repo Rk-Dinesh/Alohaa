@@ -1,5 +1,4 @@
 const AlohaaService = require('../service/alohaa_service')
-const AlohaaService = require('../services/AlohaaService');
 
 exports.createAlohaa = async (req, res, next) => {
   const event = req.body;
