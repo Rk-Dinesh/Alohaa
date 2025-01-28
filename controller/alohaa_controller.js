@@ -98,11 +98,14 @@ exports.getalohaabyagent = async (req, res, next) => {
         .json({ status: false, message: "No missed calls found" });
     }
     const lastCallerNumber = filteredData[filteredData.length - 1].caller_number;
-
+    const call_id = filteredData[filteredData.length - 1].call_id;
     res.status(200).json({
       status: true,
       message: "Last missed call retrieved successfully",
-      data: lastCallerNumber,
+      data: {
+        lastCallerNumber,
+        call_id,
+      },
     });
   } catch (error) {
     next(error);
